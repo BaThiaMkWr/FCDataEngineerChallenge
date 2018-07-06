@@ -1,4 +1,4 @@
-###FC Data Engineering Coding Challenge
+#FC Data Engineering Coding Challenge
 
 This Flask app collects and loads data from the FRED api's GDPCI, UMC Sentiment Index, and Unemployment rate series.
 Introduction
@@ -52,14 +52,14 @@ http://0.0.0.0:80/initial_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_par
 Only this URL are take in account in the application.
 In order to load the data initially and incrementally, some endpoints were created to make it easy to perform such operations. They are described as follows.
 
-#Initial load
+###Initial load
 
 http://0.0.0.0:80/initial_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
 Example : http://localhost:5000/initial_load?series_id=GDPC1
 Example : http://localhost:5000/initial_load?series_id=GDPC1&limit=10
 *other_parameters : all others parameters available except (api_key,file_type, series_id)on the native api (series_id, file_type, api_key ,limit, sort_order, observation_start, observation_end, output_type, vintage_dates)
 
-#Incremental load
+###Incremental load
 
 http://0.0.0.0:80/incremental_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
 Example : http://localhost:5000/incremental_load?series_id=GDPC1
@@ -77,6 +77,7 @@ At the end of each execution the resulting message is displayed:
 In order verify the data load a endpoint was created. It return the 5 first rows of each tables.
 http://localhost:5000/check_data_loads
 
+```json
   {
 "Real_Gross_Domestic_Product": {
     "19470101": 1934.471,
@@ -97,13 +98,14 @@ http://localhost:5000/check_data_loads
     "19531101": null,
     "19540201": null
 } }
-
+```
 
 
 ##What was the average rate of unemployment for each year starting in 1980 and going up to 2015?
 
 In order to answer this question the following SQL script was created:
 
+```sql
 SELECT
   extract(year from observation_date) AS year,
   AVG(unemployment_rate) avg_unemployment_rate
@@ -111,12 +113,13 @@ FROM FRED_SERIES.US_Civilian_Unemployment_Rate
 WHERE extract(year from observation_date)  >= 1980 AND extract(year from observation_date) <= 2015
 GROUP BY extract(year from observation_date)
 ORDER BY extract(year from observation_date) DESC;
-
+```
 
 It can also be found in the file average_rate_of_unemployment_for_each_year.sql inside the project. It was also created an endpoint to see such results:
 http://localhost:5000/unemployment_rates
 The result of the above call is illustrated as follows:
 
+```json
 {
   "1980": 7.175,
   "1981": 7.61666666666667,
@@ -155,7 +158,7 @@ The result of the above call is illustrated as follows:
   "2014": 6.175,
   "2015": 5.26666666666667
 }
-
+```
 
 Test scenario
 
