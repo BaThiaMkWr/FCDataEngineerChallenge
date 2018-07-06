@@ -1,4 +1,5 @@
 ###FC Data Engineering Coding Challenge
+
 This Flask app collects and loads data from the FRED api's GDPCI, UMC Sentiment Index, and Unemployment rate series.
 Introduction
 For this exercise, we would like you to build a simple application for pulling and storing different kinds of macro-economic data using the Federal Reserve’s FRED API.
