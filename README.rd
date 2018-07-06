@@ -1,4 +1,4 @@
-Funding Circle Data Engineering Coding Challenge
+###FC Data Engineering Coding Challenge
 This Flask app collects and loads data from the FRED api's GDPCI, UMC Sentiment Index, and Unemployment rate series.
 Introduction
 For this exercise, we would like you to build a simple application for pulling and storing different kinds of macro-economic data using the Federal Reserve’s FRED API.
@@ -9,7 +9,7 @@ The endpoint you will be most interested in is fred/series/observations, so you 
 You’ll need to create a FRED user account and API key for yourself, which you can do here: https://research.stlouisfed.org/useraccount/register/step1
 Once you have an account, request your API key and use it in your requests.
 
-Requirements
+##Requirements
 
 1. Your application should fetch the following FRED series in their entirety:
 • Real Gross Domestic Product (GDPC1)
@@ -26,14 +26,14 @@ schema.sql : sql queries to create user, database, schema and tables
 average_rate_of_unemployment_each_year.sql: average rate of unemployment for each year starting in 1980 and going up to 2015 SQL query
 requirements.txt : python dependencies
 
-Application requirements
+##Application requirements
 
 In order to build this project the following requirements must be met in the machine:
 1. PostgreSQL
 2. Python 2.7 or later
 3. requirements.txt: pip install -r requirements.txt
 
-How to execute the application
+##How to execute the application
 
 In order to execute the application, the following command must be run in the root application folder:
  1. Execute schema.sql in order to create user, database, schema and tables that the application will use to persist the data.
@@ -43,7 +43,7 @@ In order to execute the application, the following command must be run in the ro
 * Debugger PIN: 312-265-684
 http://0.0.0.0:80/incremental_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
 
- Executing the data loads
+ ##Executing the data loads
 
 Four services are available in the application under this URLs
 http://0.0.0.0:80/initial_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
@@ -51,14 +51,14 @@ http://0.0.0.0:80/initial_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_par
 Only this URL are take in account in the application.
 In order to load the data initially and incrementally, some endpoints were created to make it easy to perform such operations. They are described as follows.
 
-Initial load
+#Initial load
 
 http://0.0.0.0:80/initial_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
 Example : http://localhost:5000/initial_load?series_id=GDPC1
 Example : http://localhost:5000/initial_load?series_id=GDPC1&limit=10
 *other_parameters : all others parameters available except (api_key,file_type, series_id)on the native api (series_id, file_type, api_key ,limit, sort_order, observation_start, observation_end, output_type, vintage_dates)
 
-Incremental load
+#Incremental load
 
 http://0.0.0.0:80/incremental_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
 Example : http://localhost:5000/incremental_load?series_id=GDPC1
@@ -71,7 +71,7 @@ At the end of each execution the resulting message is displayed:
  "message": "Inserted <Number of Observations> observations”
  }
 
-Verifying the data loads
+##Verifying the data loads
 
 In order verify the data load a endpoint was created. It return the 5 first rows of each tables.
 http://localhost:5000/check_data_loads
@@ -99,7 +99,7 @@ http://localhost:5000/check_data_loads
 
 
 
-What was the average rate of unemployment for each year starting in 1980 and going up to 2015?
+##What was the average rate of unemployment for each year starting in 1980 and going up to 2015?
 
 In order to answer this question the following SQL script was created:
 
