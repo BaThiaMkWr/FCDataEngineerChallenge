@@ -1,3 +1,4 @@
+
 #FC Data Engineering Coding Challenge
 
 This Flask app collects and loads data from the FRED api's GDPCI, UMC Sentiment Index, and Unemployment rate series.
@@ -44,7 +45,7 @@ In order to execute the application, the following command must be run in the ro
 * Debugger PIN: 312-265-684
 http://0.0.0.0:80/incremental_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
 
- ##Executing the data loads
+##Executing the data loads
 
 Four services are available in the application under this URLs
 http://0.0.0.0:80/initial_load?series_id=<GDPC1 or UMCSENT or UNRATE >&other_parameters*
@@ -99,7 +100,6 @@ http://localhost:5000/check_data_loads
     "19540201": null
 } }
 ```
-
 
 ##What was the average rate of unemployment for each year starting in 1980 and going up to 2015?
 
@@ -160,7 +160,7 @@ The result of the above call is illustrated as follows:
 }
 ```
 
-Test scenario
+##Test scenario
 
 Few basic tests scenario was implemented too to check the availability of database tables, avec api services.
 python tests.py
