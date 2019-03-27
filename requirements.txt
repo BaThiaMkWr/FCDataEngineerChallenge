@@ -1,6 +1,6 @@
 dominate==2.1.17
-Flask==0.10.1
 Flask-Bootstrap==3.3.5.7
+flask>=0.12.3
 Flask-SQLAlchemy==2.1
 itsdangerous==0.24
 Jinja2==2.8
