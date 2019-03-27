@@ -1,0 +1,6 @@
+funding_circle_data_engineer_challenge:
+ build: ./app
+ ports:
+    - "5000:5000"
+ volumes:
+    - /Users/bathiamkwr/fundingCircleChallenge/fundingCircleDataEngineerChallenge
