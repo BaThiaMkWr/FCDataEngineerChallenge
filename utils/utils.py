@@ -5,15 +5,7 @@ from models.models import Real_Gross_Domestic_Product, University_of_Michigan_Cu
 from runserver import app, db
 from sqlalchemy import func
 import datetime
-from urllib import urlopen
 
-
-
-
-
-
-def __fetch_data__(url):
-    print
 
 API_KEY = app.config.get('API_KEY')
 API_URL = app.config.get('API_URL')
